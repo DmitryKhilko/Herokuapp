@@ -10,18 +10,18 @@ public class BaseTest {
     WebDriver driver;
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless"); // Хром запущен без UI - тесты ускоряются и становятся более стабильными
+        //options.addArguments("--headless"); // Хром запущен без UI - тесты ускоряются и становятся более стабильными
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
 
     @AfterMethod
-    public void tearDown(){
-        driver.quit();
+    public void tearDown() {
+        //driver.quit();
     }
 }

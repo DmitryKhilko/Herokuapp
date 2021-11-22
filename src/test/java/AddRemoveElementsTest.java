@@ -5,19 +5,21 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class AddRemoveElementsTest extends BaseTest{
+public class AddRemoveElementsTest extends BaseTest {
+    String cmdAddElementLocator = "//button[@onclick = 'addElement()']";
+    String cmdDeleteLocator = "//button[@onclick = 'deleteElement()']";
 
     @Test
-    public void addRemoveElements(){
+    public void addRemoveElements() {
         driver.get("https://the-internet.herokuapp.com/add_remove_elements/");
-        WebElement cmdAddElement = driver.findElement(By.xpath("//button[@onclick = 'addElement()']"));
+        WebElement cmdAddElement = driver.findElement(By.xpath(cmdAddElementLocator));
         cmdAddElement.click();
         cmdAddElement.click();
-        List<WebElement> cmdDelete = driver.findElements(By.xpath("//button[@onclick = 'deleteElement()']"));
-        Assert.assertEquals(cmdDelete.size(),2,"Количество элементов не равно 2");
+        List<WebElement> cmdDelete = driver.findElements(By.xpath(cmdDeleteLocator));
+        Assert.assertEquals(cmdDelete.size(), 2, "Количество элементов не равно 2");
 
         cmdDelete.get(1).click();
-        cmdDelete = driver.findElements(By.xpath("//button[@onclick = 'deleteElement()']"));
-        Assert.assertEquals(cmdDelete.size(),1,"Количество элементов не равно 1");
+        cmdDelete = driver.findElements(By.xpath(cmdDeleteLocator));
+        Assert.assertEquals(cmdDelete.size(), 1, "Количество элементов не равно 1");
     }
 }
