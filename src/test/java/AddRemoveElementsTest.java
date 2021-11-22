@@ -17,7 +17,7 @@ public class AddRemoveElementsTest extends BaseTest{
         Assert.assertEquals(cmdDelete.size(),2,"Количество элементов не равно 2");
 
         cmdDelete.get(1).click();
-        List<WebElement> cmdDelete1 = driver.findElements(By.xpath("//button[@onclick = 'deleteElement()']"));
-        Assert.assertEquals(cmdDelete1.size(),1,"Количество элементов не равно 1");
+        cmdDelete = driver.findElements(By.xpath("//button[@onclick = 'deleteElement()']"));
+        Assert.assertEquals(cmdDelete.size(),1,"Количество элементов не равно 1");
     }
 }
