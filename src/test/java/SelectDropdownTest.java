@@ -1,7 +1,10 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class SelectDropdownTest extends BaseTest {
     @Test
@@ -12,10 +15,9 @@ public class SelectDropdownTest extends BaseTest {
         //Не понимаю, как выполнить: "Взять все элементы дроп-дауна и проверить их наличие"
 
         dropDown.selectByVisibleText("Option 1");
-        Assert.assertEquals(dropDown.getFirstSelectedOption().getText(),"Option 1", "Не выбрано значение 'Option 1'");
+        Assert.assertEquals(dropDown.getFirstSelectedOption().getText(), "Option 1", "Не выбрано значение 'Option 1'");
 
         dropDown.selectByVisibleText("Option 2");
-        Assert.assertEquals(dropDown.getFirstSelectedOption().getText(),"Option 2", "Не выбрано значение 'Option 2'");
-
+        Assert.assertEquals(dropDown.getFirstSelectedOption().getText(), "Option 2", "Не выбрано значение 'Option 2'");
     }
 }
